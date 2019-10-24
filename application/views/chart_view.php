@@ -26,8 +26,7 @@
         </select>
       </div>
     </form>
-
-    <h3>Chart <small>using Codeigniter and Morris.js</small></h3>
+    
     <div id="morris"></div>
     <div id="highcharts"></div>
   </div>
