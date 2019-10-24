@@ -10,9 +10,9 @@
             AJAX
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="<?=base_url('').'Product/index'?>">CRUD</a>
-            <a class="dropdown-item" href="<?=base_url('').'Upload/index'?>">Upload Pict</a>            
-            <a class="dropdown-item" href="<?=base_url('').'Product2/index'?>">Dropdown</a>
+            <a class="dropdown-item" href="<?=base_url('').'Product/index'?>">CRUD ajax</a>
+            <a class="dropdown-item" href="<?=base_url('').'Upload/index'?>">Upload ajax</a>            
+            <a class="dropdown-item" href="<?=base_url('').'Product2/index'?>">Select ajax</a>
           </div>
         </li>
         <li class="nav-item">

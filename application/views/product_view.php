@@ -229,7 +229,7 @@
             var price        = $('#price_edit').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('product/update')?>",
+                url  : "<?= site_url('product/update')?>",
                 dataType : "JSON",
                 data : {product_code:product_code , product_name:product_name, price:price},
                 success: function(data){

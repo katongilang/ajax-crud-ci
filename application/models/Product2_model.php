@@ -3,23 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Product2_model extends CI_Model{
 	
-	function get_category(){
-		$query = $this->db->get('category');
+	function get_all($table){
+		$query = $this->db->get($table);
 		return $query;	
 	}
 
-	function get_sub_category($category_id){
-		$query = $this->db->get_where('sub_category', array('subcategory_category_id' => $category_id));
-		return $query;
+	function get_where($table,$where){
+		$this->db->from($table);
+		$this->db->where($where);
+		return $this->db->get();
 	}
 	
-	function save_product($product_name,$category_id,$subcategory_id,$product_price){
-		$data = array(
-			'product_name' => $product_name,
-			'product_price' => $product_price,
-			'product_category_id' => $category_id,
-			'product_subcategory_id' => $subcategory_id 
-		);
+	function insert($table, $data){
 		$this->db->insert('product2',$data);
 	}
 
@@ -32,18 +27,8 @@ class Product2_model extends CI_Model{
 		return $query;
 	}
 
-	function get_product_by_id($product_id){
-		$query = $this->db->get_where('product2', array('product_id' =>  $product_id));
-		return $query;
-	}
-
-	function update_product($product_id,$product_name,$category_id,$subcategory_id,$product_price){
-		$this->db->set('product_name', $product_name);
-		$this->db->set('product_price', $product_price);
-		$this->db->set('product_category_id', $category_id);
-		$this->db->set('product_subcategory_id', $subcategory_id);
-		$this->db->where('product_id', $product_id);
-		$this->db->update('product2');
+	function update_product($table, $data, $where){
+		$this->db->update($table, $data, $where);
 	}
 
 	//Delete Product

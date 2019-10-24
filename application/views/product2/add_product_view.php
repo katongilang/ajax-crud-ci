@@ -15,7 +15,7 @@
 			<div class="col col-lg-6">
 				<h3>Add New Product:</h3>
 				
-				<form action="<?php echo site_url('product2/save_product');?>" method="post">
+				<form action="<?= site_url('product2/add_new');?>" method="post">
 
 					<div class="form-group">
 						<label>Product Name</label>
@@ -26,8 +26,8 @@
 						<label>Category</label>
 						<select class="form-control" name="category" id="category" required>
 							<option value="">No Selected</option>
-							<?php foreach($category as $row):?>
-								<option value="<?php echo $row->category_id;?>"><?php echo $row->category_name;?></option>
+							<?php foreach($category as $c):?>
+								<option value="<?= $c->category_id;?>"><?= $c->category_name;?></option>
 							<?php endforeach;?>
 						</select>
 					</div>
@@ -45,22 +45,22 @@
 						<input type="number" class="form-control" name="product_price" placeholder="Product Price" required>
 					</div>
 
-					<button class="btn btn-success" type="submit">Save Product</button>
+					<button class="btn btn-success" type="submit" name="submit" value="Submit" >Save Product</button>
 
 				</form>
 			</div>
 		</div>
 
 	</div>
-	<script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-3.4.1.js'?>"></script>
-	<script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
+	<script type="text/javascript" src="<?= base_url().'assets/js/jquery-3.4.1.js'?>"></script>
+	<script type="text/javascript" src="<?= base_url().'assets/js/bootstrap.js'?>"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 
 			$('#category').change(function(){ 
 				var id=$(this).val();
 				$.ajax({
-					url : "<?php echo site_url('product2/get_sub_category');?>",
+					url : "<?= site_url('product2/get_sub_category');?>",
 					method : "POST",
 					data : {id: id},
 					async : true,
